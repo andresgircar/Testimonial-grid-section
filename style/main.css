@@ -1,49 +1,56 @@
+/*Global styles*/
 html {
     font-size: 62.5%;
     margin: 0;
     padding: 0;
     background-color: var(--light-grayish-blue);
 }
+/*Variables*/
 :root {
     /*Primary colors*/
     --moderate-violet: hsl(263, 55%, 52%);
+    --icon-border-color: hsla(0, 0%, 100%, 0.3);
     --very-dark-grayish-blue: hsl(217, 19%, 35%);
     --very-dark-blackish-blue: hsl(219, 29%, 14%);
     --white: hsl(0, 0%, 100%);
-
     /*Neutral colors*/
     --light-gray: hsl(0, 0%, 81%);
     --light-grayish-blue: hsl(210, 46%, 95%);
-
     /*Font Size*/
     --main-font-size: 1.3rem;
     --small-font: 1rem;
     --large-font: 1.8rem;
 }
+/*Body styles*/
 body {
     font-size: var(--main-font-size);
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
+/*Testimonial Grid Styles*/
 .testimonial-grid {
     width: 100%;
     height: 100vh;
     display: grid;
+    grid-template-columns: repeat(1, auto);
     place-items: center;
 }
 .testimonial-container {
     width: 80%;
     display: grid;
     gap: 25px;
+    padding: 25px;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
 }
 .testimonial-container .testimonial-block {
     padding: 25px 35px;
-    border-radius: 10px;
-}
-.testimonial-block {
+    border-radius: 8px;
     position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 .testimonial-block .title {
     display: flex;
@@ -57,7 +64,6 @@ body {
 }
 .title .user-info p {
     margin: 0;
-    font-size: var(--small-font);
 }
 .title .user-info p:nth-child(1) {
     font-size: var(--main-font-size);
@@ -65,12 +71,14 @@ body {
 }
 .title .user-info p:nth-child(2) {
     opacity: 0.5;
+    font-size: var(--small-font);
 }
 .testimonial-block .quote {
     position: absolute;
     z-index: 1;
     top: 0;
     right: 15%;
+    opacity: 0.7;
 }
 .testimonial-block .block-contain p:nth-child(1) {
     font-size: var(--large-font);
@@ -78,10 +86,18 @@ body {
     position: relative;
     z-index: 2;
 }
+.testimonial-block .block-contain p:nth-child(2) {
+    opacity: 0.7;
+    margin: 0;
+}
+/*Inside cards styles and positioning*/
 .first {
     background-color: var(--moderate-violet);
     grid-column: 1 / 3;
     grid-row: 1 / 2;
+}
+.first .title img:first-child {
+    border: 3px solid var(--icon-border-color);
 }
 .second {
     background-color: var(--very-dark-grayish-blue);
@@ -93,6 +109,7 @@ body {
     background-color: var(--white);
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    color: var(--very-dark-grayish-blue);
 }
 .fourth {
     background-color: var(--very-dark-blackish-blue);
@@ -100,20 +117,62 @@ body {
     grid-row: 2 / 3;
     color: var(--white);
 }
+.fourth .title img:first-child {
+    border: 3px solid var(--moderate-violet);
+}
 .fifth {
     background-color: var(--white);
     grid-column: 4 / 5;
     grid-row: 1 / 3;
+    color: var(--very-dark-grayish-blue);
 }
+/*footer styles*/
 footer {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 30px;
-    position: absolute;
-    bottom: 0;
-    vertical-align: middle;
 }
 footer .attribution {
     text-align: center;
+}
+@media (max-width: 1150px) {
+    .testimonial-container {
+        width: 90%;
+        gap: 25px;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(auto);
+    }
+    .first {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+    .second, .third, .fourth, .fifth {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+@media (max-width: 900px) {
+    .testimonial-container {
+        width: 90%;
+        gap: 25px;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(auto);
+    }
+    .first, .second, .third, .fourth, .fifth {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+@media (max-width: 580px) {
+    .testimonial-container {
+        width: 90%;
+        gap: 25px;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(auto);
+    }
+    .first, .second, .third, .fourth, .fifth {
+        grid-column: auto;
+        grid-row: auto;
+    }
 }
