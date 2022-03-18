@@ -33,7 +33,8 @@ body {
 /*Testimonial Grid Styles*/
 .testimonial-grid {
     width: 100%;
-    height: 100vh;
+    margin: 50px 0 50px 0;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(1, auto);
     place-items: center;
@@ -131,10 +132,14 @@ footer {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 30px;
+    height: auto;
 }
 footer .attribution {
     text-align: center;
+    padding: 10px;
+}
+.attribution p {
+    margin: 0;
 }
 @media (max-width: 1150px) {
     .testimonial-container {
